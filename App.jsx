@@ -1,9 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-} from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 import { useState } from "react";
 import MyModal from "./components/Modal";
 import MyInput from "./components/Input";
@@ -61,14 +56,10 @@ export default function App() {
           onChangeTextHandlerEvent={onChangeTextHandler}
           addItemToListEvent={addItemToList}
         />
-        <MyFlatList
-          data={itemList}
-          renderItem={renderListItem}
-          keyExtractor={(item) => item.id}
-        />
+        <MyFlatList dataProp={itemList} renderListItemProp={renderListItem} />
       </View>
       <MyModal
-        animationTypeProp="slide"
+        animationTypeProp="fade"
         isVisibleProp={isModalOpen}
         itemSelectedProp={itemSelected}
         onDeleteItemHandlerEvent={onDeleteItemHandler}
@@ -84,7 +75,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#534D56",
     padding: 40,
     paddingTop: 100,
-  },  
+  },
   itemList: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -93,14 +84,5 @@ const styles = StyleSheet.create({
     margin: 10,
     backgroundColor: "#1B998B",
     borderRadius: 10,
-  },
-  modalMessageContainer: {
-    marginTop: 50,
-    alignItems: "center",
-  },
-  modalButtonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    paddingTop: 20,
   },
 });
